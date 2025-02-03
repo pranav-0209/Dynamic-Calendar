@@ -1,0 +1,135 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Gilroy";
+}
+
+
+#navbar {
+    background-color: #352f44;
+    padding: 25px;
+    position: sticky;
+    top: 0;
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar ul li {
+    margin: 0 15px;
+}
+
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+#navbar ul li a:hover {
+    color: #ffeb3b;
+}
+
+
+#calendar {
+    padding: 20px;
+    text-align: center;
+}
+
+#calendar h1 {
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin: 10px 0 35px 0;
+}
+
+.calendar-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+.days-of-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 20px 0;
+}
+
+.calendar-header button {
+    background: #352f44;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.calendar-header button:hover {
+    background-color: #5c5470;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-grid div {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.calendar-grid div.event-day {
+    background-color: #ffeb3b;
+    position: relative;
+}
+
+.calendar-grid div.event-day:hover::after {
+    content: attr(data-event);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #352f44;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+#event-details {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 20px;
+    width: 100%;
+    background-color: #352f44;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+
+@media (max-width: 600px) {
+    .calendar-grid div {
+        padding: 5px;
+    }
+}
